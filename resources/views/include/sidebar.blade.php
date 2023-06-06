@@ -26,7 +26,7 @@
                         <!-- only those have manage_user permission will get access -->
                         
                         <a href="{{url('designPage')}}" class="menu-item {{ ($segment1 == 'designPage') ? 'active' : '' }}">{{ __('Get Design')}}</a>
-                        <a href="{{url('user/create')}}" class="menu-item {{ ($segment1 == 'user' && $segment2 == 'create') ? 'active' : '' }}">{{ __('Add Page ')}}</a>
+                        <a href="{{url('newDesign')}}" class="menu-item {{ ($segment1 == 'newDesign' && $segment2 == 'newDesign') ? 'active' : '' }}">{{ __('New Design  ')}}</a>
                          
                          <!-- only those have manage_role permission will get access -->
                     </div>

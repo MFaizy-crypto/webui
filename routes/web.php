@@ -58,6 +58,7 @@ Route::post('saveDesignDataNow', [IndexController::class,'saveDesignDataNow'])->
 	Route::post('deleteDesignData', [IndexController::class,'deleteDesignData'])->name('deleteDesignData');
 	Route::post('updateOrder', [IndexController::class,'updateOrder'])->name('updateOrder');
 
+	Route::get('newDesign', [IndexController::class,'newDesign'])->name('newDesign');
 
 	//only those have manage_user permission will get access
 	Route::group(['middleware' => 'can:manage_user'], function(){

@@ -103,7 +103,7 @@ class IndexController extends Controller
      $img=$req->file('file');
      if ($img != null) {
        $name=$img->getClientOriginalName();
-       $path=public_path('assets/design');
+       $path=public_path('web/design');
        $img->move($path, $name);
        // $t=DB::table('pagedesign')->where('user_id', session('id'))->get();
       
@@ -167,7 +167,7 @@ class IndexController extends Controller
   $img=$req->file('file');
   if ($img != null) {
    $name=$img->getClientOriginalName();
-   $path=public_path('assets/design');
+   $path=public_path('web/design');
    $img->move($path, $name);
    // $t=DB::table('pagedesign')->where('user_id', session('id'))->get();
   
@@ -239,6 +239,11 @@ class IndexController extends Controller
  
  
    return 'success';
+ }
+
+ public function newDesign() 
+ {
+  return view('admin.master');
  }
  
 }

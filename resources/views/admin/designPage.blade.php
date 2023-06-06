@@ -1,25 +1,10 @@
+@extends('layouts.main')
+@section('title', 'Dashboard')
+@section('content')
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{{asset('asset/main.css')}}">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Home</title>
-  </head>
+
   <style>
-    body{
-      width:430px;
-      margin:auto;
-      
-      font-family: "Konkhmer Sleokchher", sans-serif;
-      
-    }
+  
     .descriptionText{
         font-size: 17px;
         font-weight: 100;
@@ -32,7 +17,12 @@
         margin-left: 20%;
     }
      .imgurlget{
-      width: 100%;
+      width: 50%;
+  }
+  .container-fluid-img {
+    display: flex;
+  justify-content: center;
+  align-items: center;
   }
  @media (max-width: 700px) {
   body {
@@ -55,7 +45,7 @@
     }
   .mani{
        width: 100%;
-  margin-left: 0px;
+  margin-left: 100px;
   }
   .stoptillhere{
        width: 100%;
@@ -92,7 +82,7 @@
 }
 
     </style>
-      <body  >
+    
           <div class="fullMaim">
         <div id='showAppendDiv' class='container-fluid mt-3'>
 
@@ -113,7 +103,7 @@
                     </ul>
                 </div>
             @endif
-          @if (session('id'))
+          
                 
            
           <form action="{{route('saveDesignDataNow')}}" method="POST" enctype="multipart/form-data">
@@ -181,14 +171,14 @@
             </button>
           </div>
        <div class="col mt-2">
-            <button type="button"  onclick='previewData()' style="background: white; border: transparent; border-radius: 40px;  height: 30px; width: 100%;">  <img src="{{asset('web/designPics/Preview.png')}}" style="height: 30px; width: 100%;">  </button>
+            <button type="button"  onclick='previewData()' style="background: white; border: transparent; border-radius: 40px;  height: 30px; width: 100%;">  <img src="{{asset('public/web/designPics/Preview.png')}}" style="height: 30px; width: 100%;">  </button>
           </div>
         
           </div>
     
         </form>
-        @endif
-         <a href="#"  class="btn float-center logoutnow" style="background: white; ">
+        
+         <a href=""  class="btn float-center logoutnow" style="background: white; ">
             <img class="profile-pic" style="width: 100%; height: 40px;" src="{{asset('public/web/designPics/logout.png')}}">
           </a>
        
@@ -240,7 +230,6 @@
     </div>
   </div>
 </div>
-      </body>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 
@@ -263,7 +252,7 @@
     // Set up the file reader onload event
     reader.onload = function(e) {
       var imageUrl = e.target.result; 
-       $('#previewDataNow').append(`<div class="container-fluid p-3  " style=" margin-top: 30px"> 
+       $('#previewDataNow').append(`<div class="container-fluid-img p-3  " style=" margin-top: 30px"> 
       <img src="${imageUrl}" style="width: 110%; height: auto;" class="imgurl" alt=""> 
       </div>`);
       
@@ -409,13 +398,13 @@ if (value['img']!=null) {
   
   var imageUrl = "{{ asset('public/web/design/') }}" + '/' + value['img'];
   divToAppend.innerHTML = `
-<div class="container-fluid py-3 firstImg stoptillhere" style="border-bottom: 2px; solid green; ">
+<div class="container-fluid-img py-3 firstImg stoptillhere" style="border-bottom: 2px; solid green; ">
       <img src="${imageUrl}" style="height: auto;" class="imgurlget" alt="">
       </div>`;
 }
 if (value['title']!=null) {
   divToAppend.innerHTML += `
-  <div class="container-fluid p-3 stoptillhere " style="border-bottom: 2px; solid green; ">
+  <div class="container-fluid p-3 text-center stoptillhere " style="border-bottom: 2px; solid green; ">
       <p class="titleText" style="font-size: 25px; color: black;">${value['title']}</p>
       </div>`;
 }
@@ -671,4 +660,4 @@ function updateOrder() {
   });
         }
       </script>
-</html>
+      @endsection
