@@ -38,7 +38,10 @@
         font-size: 13px;
     }
   .imgurlget{
-      width: 110%;
+      width: 100%;
+  }
+  .row.stoptillhere.mt-3 {
+    margin: 0px;
   }
   .logoutnow{
         margin-left: 22%;
@@ -398,40 +401,55 @@ if (value['img']!=null) {
   
   var imageUrl = "{{ asset('public/web/design/') }}" + '/' + value['img'];
   divToAppend.innerHTML = `
-<div class="container-fluid-img py-3 firstImg stoptillhere" style="border-bottom: 2px; solid green; ">
+<div class="container-fluid py-3 p-3 firstImg stoptillhere" style="border-bottom: 2px solid #c7c7c7; position: relative; text-align: center;">
       <img src="${imageUrl}" style="height: auto;" class="imgurlget" alt="">
+      <div style="text-align: right; position: absolute; bottom: 10px; right: 15px;">
+        <span style="height: 8px; width: 8px; border-radius: 50%; background-color: limegreen; display: inline-block; margin: 0 5px;"></span>
+        <span style="height: 8px; width: 8px; border-radius: 50%; background-color: limegreen; display: inline-block; margin: 0 5px;"></span>
+        <span style="height: 8px; width: 8px; border-radius: 50%; background-color: limegreen; display: inline-block; margin: 0 5px;"></span>
+      </div>
       </div>`;
 }
 if (value['title']!=null) {
   divToAppend.innerHTML += `
-  <div class="container-fluid p-3 text-center stoptillhere " style="border-bottom: 2px; solid green; ">
-      <p class="titleText" style="font-size: 25px; color: black;">${value['title']}</p>
+  <div class="container-fluid p-3 mb-3 pb-2 text-center stoptillhere " style="border-bottom: 2px solid #c7c7c7; position: relative;">
+      <p class="titleText" style="font-size: 25px; color: black; text-align: left;">${value['title']}</p>
+      <div style="text-align: right; position: absolute; bottom: 10px; right: 15px;">
+        <span style="height: 8px; width: 8px; border-radius: 50%; background-color: limegreen; display: inline-block; margin: 0 5px;"></span>
+        <span style="height: 8px; width: 8px; border-radius: 50%; background-color: limegreen; display: inline-block; margin: 0 5px;"></span>
+        <span style="height: 8px; width: 8px; border-radius: 50%; background-color: limegreen; display: inline-block; margin: 0 5px;"></span>
+      </div>
       </div>`;
 }
 if (value['description']!=null) {
   divToAppend.innerHTML += `
-  <div class="container-fluid px-3 text-center stoptillhere descriptionText" style="border-bottom: 2px; solid green; ">
+  <div class="container-fluid px-3 pb-2 text-center stoptillhere descriptionText" style="border-bottom: 2px; solid green; position: relative;">
       <p style="font-size: 18px; font-weight: 300; color: black; line-height: 29px;">${value['description']}</p>
+      <div style="text-align: right; position: absolute; bottom: 10px; right: 15px;">
+        <span style="height: 8px; width: 8px; border-radius: 50%; background-color: limegreen; display: inline-block; margin: 0 5px;"></span>
+        <span style="height: 8px; width: 8px; border-radius: 50%; background-color: limegreen; display: inline-block; margin: 0 5px;"></span>
+        <span style="height: 8px; width: 8px; border-radius: 50%; background-color: limegreen; display: inline-block; margin: 0 5px;"></span>
+      </div>
       </div>`;
 }
 
       divToAppend.innerHTML += `
-  <div class="col mt-3" style=" margin-left: 7%;">
+  <div class="col mt-3" style="border: 2px solid #c7c7c7; min-height: 60px; border-radius: 10px;">
                     <div class="col d-flex " style="justify-content: center;">
                         <div>
                             <button class='btn ClickUP'>
-                            <img src="{{asset('public/web/designPics/Up.png')}}" style="height: 40px; width: 40px;">                          
+                            <img src="{{asset('public/web/designPics/up-icon-img.jpg')}}" style="height: 40px; width: 40px;">                          
                             </button>
                         </div>
                         <div>
-                            <button class='btn ClickDOWN' >  <img src="{{asset('public/web/designPics/down.png')}}" style="height: 40px; width: 40px;">  
+                            <button class='btn ClickDOWN' >  <img src="{{asset('public/web/designPics/down-icon-img.jpg')}}" style="height: 40px; width: 40px;">  
                             </button>
                             <button class='btn'  onclick=editDesignData(this.id) id="${value['id']}">
-                             <img src="{{asset('public/web/designPics/edit.png')}}" style="height: 40px; width: 40px;">  
+                            <img src="{{asset('public/web/designPics/edit.png')}}" style="height: 40px; width: 40px;">  
 
                             </button>
                             <button class='btn'  onclick=deleteDesignData(this.id) id="${value['id']}">
-                             <img src="{{asset('public/web/designPics/delete.png')}}" style="height: 40px; width: 40px;">  
+                            <img src="{{asset('public/web/designPics/delete.png')}}" style="height: 40px; width: 40px;">  
 
 
                             </button>
@@ -439,14 +457,14 @@ if (value['description']!=null) {
                       </div>
                         
                         
-                       
+
                       
                     </div>
                 
-               
+
 `; 
-   
- 
+
+
 
 
 targetToAppend.appendChild(divToAppend);
