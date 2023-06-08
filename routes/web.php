@@ -21,6 +21,11 @@ use App\Http\Controllers\PermissionController;
 | contains the "web" middleware group. Now create something great!
 |
 */ 
+
+Route::get('/newPage', function() {
+	return view('front-new');
+});
+
 Route::get('/', function () { return view('auth/login'); });
 
 

@@ -128,7 +128,7 @@
                   <div class="">
                     <div class=" upload-button2"  style="margin-left: 20px; margin-right: -20px;">
                       <!-- User Profile Image -->
-                      <img class=""  style="width: 100%; height: 55px;" src="{{asset('public/web/designPics/Pic1.png')}}">
+                      <img class=""  style="width: 100%; height: 55px;" src="{{asset('public/web/designPics/upload-img.jpg')}}">
               
                       <!-- Default Image -->
                       <!-- <i class="fa fa-user fa-5x"></i> -->
@@ -143,7 +143,7 @@
                 <div class="">
                   <!-- User Profile Image -->
                  <button type="button" style="background: white; border: 0px; margin-right: ;" class="textuse">
-                  <img class="" style="width: 100%; height: 55px;" src="{{asset('public/web/designPics/Title1.png')}}">
+                  <img class="" style="width: 100%; height: 55px;" src="{{asset('public/web/designPics/change-heading.jpg')}}">
     
                  </button>
            
@@ -155,7 +155,7 @@
                 <div class="">
                   <!-- User Profile Image -->
                  <button type="button" class="textuse2" style="background: white; border: 0px; margin-left: 10px;">
-                  <img class="" style="width: 100%; height: 55px;" src="{{asset('public/web/designPics/Text1.png')}}">
+                  <img class="" style="width: 100%; height: 55px;" src="{{asset('public/web/designPics/add-text.png')}}">
     
                  </button>
            
@@ -168,13 +168,13 @@
          <div class="row pb-5">
           <div class="col mt-2">
              
-            <button type="submit" class="float-center" style="background: white; border: transparent; border-radius: 40px; height: 30px; width: 100%; margin-left: 0%;">
+            <button type="submit" class="float-center" style="background: white; border: transparent; border-radius: 40px; height: 30px; width: 50%; margin-left: 0%;">
             <img src="{{asset('public/web/designPics/save-update2.png')}}" style="height: 30px; width: 100%;">  
             
             </button>
           </div>
        <div class="col mt-2">
-            <button type="button"  onclick='previewData()' style="background: white; border: transparent; border-radius: 40px;  height: 30px; width: 100%;">  <img src="{{asset('public/web/designPics/Preview.png')}}" style="height: 30px; width: 100%;">  </button>
+            <button type="button"  onclick='previewData()' style="background: white; border: transparent; border-radius: 40px;  height: 30px; width: 50%;">  <img src="{{asset('public/web/designPics/Preview.png')}}" style="height: 30px; width: 100%;">  </button>
           </div>
         
           </div>
