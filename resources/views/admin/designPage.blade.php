@@ -17,7 +17,7 @@
         margin-left: 20%;
     }
      .imgurlget{
-      width: 50%;
+      width: 100%;
   }
   .container-fluid-img {
     display: flex;
@@ -83,10 +83,26 @@
   cursor: pointer
    /*padding: 30px;*/
 }
+/* @media screen and (max-width: 767px) {
+  #saveContent, #previewContent {
+    width: 100% !important;
+  }
+} */
+
+.mainParent {
+  max-width: 375px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+button.btn:focus, a.btn:focus {
+  box-shadow: none;
+}
 
     </style>
     
-          <div class="fullMaim">
+    <div class="mainParent">
+    <div class="fullMaim">
         <div id='showAppendDiv' class='container-fluid mt-3'>
 
 
@@ -98,7 +114,7 @@
 
 
         </div>
-        <div class="container-fluid mani p-md-5 mainForm" style="margin-left: 0; border-bottom: 2px solid green; ">
+        <div class="container-fluid mani py-md-5 py-3 px-md-3 mainForm" style="margin-left: 0; border-bottom: 2px solid green; ">
               @if (\Session::has('error'))
                 <div class="alert" style="background: white; color:red;   height:50px;">
                     <ul>
@@ -168,20 +184,20 @@
          <div class="row pb-5">
           <div class="col mt-2">
              
-            <button type="submit" class="float-center" style="background: white; border: transparent; border-radius: 40px; height: 30px; width: 50%; margin-left: 0%;">
+            <button type="submit" id="saveContent" class="float-center" style="border: transparent; border-radius: 40px; height: 30px; width: 100%; margin-left: 0%;">
             <img src="{{asset('public/web/designPics/save-update2.png')}}" style="height: 30px; width: 100%;">  
             
             </button>
           </div>
        <div class="col mt-2">
-            <button type="button"  onclick='previewData()' style="background: white; border: transparent; border-radius: 40px;  height: 30px; width: 50%;">  <img src="{{asset('public/web/designPics/Preview.png')}}" style="height: 30px; width: 100%;">  </button>
+            <button type="button" id="previewContent" onclick='previewData()' style="border: transparent; border-radius: 40px;  height: 30px; width: 100%;">  <img src="{{asset('public/web/designPics/Preview.png')}}" style="height: 30px; width: 100%;">  </button>
           </div>
         
           </div>
     
         </form>
         
-         <a href=""  class="btn float-center logoutnow" style="background: white; ">
+         <a href=""  class="btn float-center logoutnow">
             <img class="profile-pic" style="width: 100%; height: 40px;" src="{{asset('public/web/designPics/logout.png')}}">
           </a>
        
@@ -197,6 +213,7 @@
         <!--</div>-->
         @endif
         <!-- Button trigger modal -->
+    </div>
 
 
 <!-- Modal -->
@@ -389,7 +406,7 @@ $.each(result, function(index, value) {
     divToAppend.classList.add('row');
     divToAppend.classList.add('stoptillhere');
     divToAppend.classList.add('bg-white');
-     divToAppend.classList.add('mt-3');
+     divToAppend.classList.add('mx-0');
       divToAppend.classList.add('pb-3');
     divToAppend.classList.add('align-items-center');
     divToAppend.classList.add('order-prefix-'+value['order_div']);
@@ -401,18 +418,20 @@ if (value['img']!=null) {
   
   var imageUrl = "{{ asset('public/web/design/') }}" + '/' + value['img'];
   divToAppend.innerHTML = `
-<div class="container-fluid py-3 p-3 firstImg stoptillhere" style="border-bottom: 2px solid #c7c7c7; position: relative; text-align: center;">
+<div class="container-fluid pb-3 px-0 firstImg stoptillhere" style="border-bottom: 0px solid #c7c7c7; position: relative; text-align: center;">
       <img src="${imageUrl}" style="height: auto;" class="imgurlget" alt="">
       <div style="text-align: right; position: absolute; bottom: 10px; right: 15px;">
         <span style="height: 8px; width: 8px; border-radius: 50%; background-color: limegreen; display: inline-block; margin: 0 5px;"></span>
         <span style="height: 8px; width: 8px; border-radius: 50%; background-color: limegreen; display: inline-block; margin: 0 5px;"></span>
         <span style="height: 8px; width: 8px; border-radius: 50%; background-color: limegreen; display: inline-block; margin: 0 5px;"></span>
       </div>
+      <div class="mx-2" style="position: absolute; bottom: 0px; left: 0px; width: 96%; border-bottom: 2px solid #c7c7c7;">
+      </div>
       </div>`;
 }
 if (value['title']!=null) {
   divToAppend.innerHTML += `
-  <div class="container-fluid p-3 mb-3 pb-2 text-center stoptillhere " style="border-bottom: 2px solid #c7c7c7; position: relative;">
+  <div class="container-fluid p-3 mb-3 mx-2 pb-2 text-center stoptillhere " style="border-bottom: 2px solid #c7c7c7; position: relative;">
       <p class="titleText" style="font-size: 25px; color: black; text-align: left;">${value['title']}</p>
       <div style="text-align: right; position: absolute; bottom: 10px; right: 15px;">
         <span style="height: 8px; width: 8px; border-radius: 50%; background-color: limegreen; display: inline-block; margin: 0 5px;"></span>
@@ -423,7 +442,7 @@ if (value['title']!=null) {
 }
 if (value['description']!=null) {
   divToAppend.innerHTML += `
-  <div class="container-fluid px-3 pb-2 text-center stoptillhere descriptionText" style="border-bottom: 2px; solid green; position: relative;">
+  <div class="container-fluid mx-2 px-3 pb-2 text-center stoptillhere descriptionText" style="border-bottom: 2px; solid green; position: relative;">
       <p style="font-size: 18px; font-weight: 300; color: black; line-height: 29px;">${value['description']}</p>
       <div style="text-align: right; position: absolute; bottom: 10px; right: 15px;">
         <span style="height: 8px; width: 8px; border-radius: 50%; background-color: limegreen; display: inline-block; margin: 0 5px;"></span>
@@ -434,7 +453,7 @@ if (value['description']!=null) {
 }
 
       divToAppend.innerHTML += `
-  <div class="col mt-3" style="border: 2px solid #c7c7c7; min-height: 60px; border-radius: 10px;">
+  <div class="col mt-3 mx-3" style="border: 2px solid #c7c7c7; min-height: 60px; border-radius: 10px;">
                     <div class="col d-flex " style="justify-content: center;">
                         <div>
                             <button class='btn ClickUP'>
@@ -444,13 +463,11 @@ if (value['description']!=null) {
                         <div>
                             <button class='btn ClickDOWN' >  <img src="{{asset('public/web/designPics/down-icon-img.jpg')}}" style="height: 40px; width: 40px;">  
                             </button>
-                            <button class='btn'  onclick=editDesignData(this.id) id="${value['id']}">
-                            <img src="{{asset('public/web/designPics/edit.png')}}" style="height: 40px; width: 40px;">  
-
-                            </button>
                             <button class='btn'  onclick=deleteDesignData(this.id) id="${value['id']}">
                             <img src="{{asset('public/web/designPics/delete.png')}}" style="height: 40px; width: 40px;">  
-
+                            </button>
+                            <button class='btn' style="display: none;"  onclick=editDesignData(this.id) id="${value['id']}">
+                            <img src="{{asset('public/web/designPics/edit.png')}}" style="height: 40px; width: 40px;">
 
                             </button>
                         </div>
